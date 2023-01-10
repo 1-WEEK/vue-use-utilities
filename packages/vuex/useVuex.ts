@@ -1,6 +1,6 @@
 import { computed, getCurrentInstance, isVue3 } from 'vue-demi'
 import type { ComputedRef } from 'vue-demi'
-import { Store } from 'vuex'
+import { Store, ActionMethod, MutationMethod } from 'vuex'
 
 import { isObject, isString, partial } from './utils'
 
@@ -68,7 +68,7 @@ function getModuleByNamespace (store: any, helper: string, namespace: string) {
  * @param {Object}
  */
 export const useState = (store: Store<any>, namespace: string, states: Array<string> | object): object => {
-  const res: any = {}
+  const res: Record<string, any> = {}
   if (__DEV__ && !isValidMap(states)) {
     console.error('[vuex] useState: mapper parameter must be either an Array or an Object')
   }
@@ -98,10 +98,9 @@ export const useState = (store: Store<any>, namespace: string, states: Array<str
  * Reduce the code which written in Vue.js for committing the mutation
  * @param {String} [namespace] - Module's namespace
  * @param {Object|Array} mutations # Object's item can be a function which accept `commit` function as the first param, it can accept anthor params. You can commit mutation and do any other things in this function. specially, You need to pass anthor params from the mapped function.
- * @return {Object}
  */
-export const useMutations = (store: any, namespace: string, mutations: Array<string> | object): object => {
-  const res: any = {}
+export const useMutations = (store: any, namespace: string, mutations: Array<string> | object) => {
+  const res: Record<string, MutationMethod> = {}
   if (__DEV__ && !isValidMap(mutations)) {
     console.error('[vuex] useMutations: mapper parameter must be either an Array or an Object')
   }
@@ -160,7 +159,7 @@ export const useGetters = (store: Store<any>, namespace: string, getters: Array<
  * @return {Object}
  */
 export const useActions = (store: any, namespace: string, actions: Array<string> | object): object => {
-  const res: any = {}
+  const res: Record<string, ActionMethod> = {}
   if (__DEV__ && !isValidMap(actions)) {
     console.error('[vuex] useActions: mapper parameter must be either an Array or an Object')
   }
