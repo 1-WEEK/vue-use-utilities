@@ -1,7 +1,7 @@
 {
   "name": "@1-week/vue-use-axios",
   "description": "Use Axios With Composition API Easily.",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "main": "lib/index.cjs.js",
   "types": "lib/index.d.ts",
   "module": "lib/index.esm.js",
