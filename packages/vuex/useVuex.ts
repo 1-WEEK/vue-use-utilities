@@ -1,4 +1,5 @@
 import { computed, getCurrentInstance, isVue3 } from 'vue-demi'
+import type { ComputedRef } from 'vue-demi'
 import { Store } from 'vuex'
 
 import { isObject, isString, partial } from './utils'
@@ -127,10 +128,9 @@ export const useMutations = (store: any, namespace: string, mutations: Array<str
  * Reduce the code which written in Vue.js for getting the getters
  * @param {String} [namespace] - Module's namespace
  * @param {Object|Array} getters
- * @return {Object}
  */
-export const useGetters = (store: Store<any>, namespace: string, getters: Array<string> | object): object => {
-  const res: any = {}
+export const useGetters = (store: Store<any>, namespace: string, getters: Array<string> | object) => {
+  const res: Record<string, ComputedRef> = {}
   if (__DEV__ && !isValidMap(getters)) {
     console.error('[vuex] useGetters: mapper parameter must be either an Array or an Object')
   }

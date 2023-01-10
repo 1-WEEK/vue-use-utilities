@@ -1,5 +1,5 @@
 {
-  "name": "@vueblocks/vue-use-vuex",
+  "name": "@1-week/vue-use-vuex",
   "description": "Use Vuex With Composition API Easily.",
   "version": "0.2.11",
   "main": "lib/index.cjs.js",
@@ -25,7 +25,7 @@
     "composition-api",
     "utilities"
   ],
-  "author": "xiaoluoboding<https://github.com/xiaoluoboding>",
+  "author": "1-week<https://github.com/1-week>",
   "license": "MIT",
   "sideEffects": false,
   "peerDependenciesMeta": {
