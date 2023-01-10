@@ -1,7 +1,7 @@
 {
   "name": "@1-week/vue-use-vuex",
   "description": "Use Vuex With Composition API Easily.",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "main": "lib/index.cjs.js",
   "types": "lib/index.d.ts",
   "module": "lib/index.esm.js",
